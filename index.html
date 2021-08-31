@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyhabits</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <div id="app">
+        <figure class="highcharts-figure">
+            <Highchart :data="returnData"></Highchart>
+            
+            <span v-if="createNewName">Данные о семянах с таким именем уже есть. Придумайте другое имя</span>
+            <input class="fullwidth" type="text" placeholder="Название семян" @input="newItemData.name =  $event.target.value" :value="newItemData.name">
+            <span v-if="newItemData.name == ''">Это поле должно быть заполненно</span>
+            <input class="fullwidth" type="number" placeholder="Показание за 2025 год" @input="newItemData.value2025 =  Number($event.target.value)" :value="newItemData.value2025">
+            <span v-if="newItemData.value2025 < 0">Это поле должно быть заполненно числом >= 0</span>
+            <input class="fullwidth" type="number" placeholder="Показание за 2026 год" @input="newItemData.value2026 =  Number($event.target.value)" :value="newItemData.value2026">
+            <span v-if="newItemData.value2026 < 0">Это поле должно быть заполненно числом >= 0</span>
+            <input class="fullwidth" type="number" placeholder="Показание за 2027 год" @input="newItemData.value2027 =  Number($event.target.value)" :value="newItemData.value2027">
+            <span v-if="newItemData.value2027 < 0">Это поле должно быть заполненно числом >= 0</span>
+            <input class="fullwidth" type="number" placeholder="Показание за 2028 год" @input="newItemData.value2028 =  Number($event.target.value)" :value="newItemData.value2028">
+            <span v-if="newItemData.value2028 < 0">Это поле должно быть заполненно числом >= 0</span>
+
+            <button class="fullwidth" @click="addItem">Добавить новый вид семян</button>
+            
+            <button class="fullwidth" @click="addRandomItem">Добавить случайный вид семян</button>
+        </figure>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
