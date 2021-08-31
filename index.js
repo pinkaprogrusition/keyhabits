@@ -97,8 +97,7 @@ new Vue({
               value2026: 5555,
               value2027: 4444,
               value2028: 3333
-          },
-          createNewName: false
+          }
     },
     methods:{
         //Функция добавления нового типа семян
